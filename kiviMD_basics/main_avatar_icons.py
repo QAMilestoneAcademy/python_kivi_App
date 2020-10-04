@@ -1,6 +1,7 @@
 from kivymd.app import MDApp
 from kivymd.uix.screen import MDScreen
-from kivymd.uix.list import MDList,OneLineListItem,TwoLineListItem,ThreeLineListItem
+from kivymd.uix.list import MDList,ThreeLineIconListItem,ThreeLineAvatarIconListItem
+from kivymd.uix.list import IconLeftWidget,ImageRightWidget
 from kivy.uix.scrollview import ScrollView
 
 class DemoApp(MDApp):
@@ -13,9 +14,12 @@ class DemoApp(MDApp):
         # list_view.add_widget(item1)
         # list_view.add_widget(item2)
         for i in range(20):
-            # items=OneLineListItem(text='Item '+ str(i))
-            # items = TwoLineListItem(text='Item ' + str(i), secondary_text='Hello World')
-            items = ThreeLineListItem(text='Item ' + str(i), secondary_text='Hello World',tertiary_text='third text')
+
+            # icon=IconLeftWidget(icon='android')
+            # items = ThreeLineIconListItem(text='Item ' + str(i), secondary_text='Hello World',tertiary_text='third text')
+            image=ImageRightWidget(source='my_avatar.png')
+            items = ThreeLineAvatarIconListItem(text='Item ' + str(i), secondary_text='Hello World',tertiary_text='third text')
+            items.add_widget(image)
             list_view.add_widget(items)
 
         scroll.add_widget(list_view)

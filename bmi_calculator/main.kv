@@ -1,0 +1,69 @@
+#: import utils kivy.utils
+ScreenManager:
+    HomeScreen:
+        id:home
+        name:'home'
+<HomeScreen>:
+    canvas.before:
+        Color:
+            rgb:utils.get_color_from_hex('#08F7B8')
+        Rectangle:
+            size:self.size
+            pos:self.pos
+    FloatLayout:
+        Image:
+            pos_hint:{'top':.95,'left':1}
+            size_hint:.5,.1
+            source:'male.png'
+        Image:
+            pos_hint:{'top':.95,'right':1}
+            size_hint:.5,.1
+            source:'female.png'
+        Label:
+            text:'Choose your height'
+            font_size:30
+            color:231/255, 76/255, 60/255,1
+            size_hint:1,.1
+            pos_hint:{'top':.82}
+        MDSlider:
+            id:height_value
+            min:90
+            max:250
+            value:150
+            size_hint:1,.1
+            pos_hint:{'top':.75}
+            on_touch_up:
+                root.get_value()
+        Label:
+            text:'Choose your weight'
+            font_size:30
+            color:231/255, 76/255, 60/255,1
+            size_hint:1,.1
+            pos_hint:{'top':.67}
+        MDCard:
+            size:"280dp","79dp"
+            size_hint:None,None
+            pos_hint:{'center_x':.5,'center_y':.5}
+            MDIconButton:
+                icon:'plus'
+                user_font_size:"64sp"
+                on_release:
+                    root.increase()
+            Label:
+                text:str(root.weight) + 'kg'
+                font_size:40
+                color:0/255, 0/255, 0/255,1
+            MDIconButton:
+                icon:'minus'
+                user_font_size:"64sp"
+                on_release:
+                    root.decrease()
+        MDRaisedButton:
+            size_hint:.8,.07
+            pos_hint:{'top':.3,'center_x':.5}
+            text:'Calculate BMI'
+            on_release:
+                root.calculate_bmi()
+
+
+
