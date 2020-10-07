@@ -34,8 +34,7 @@ class HomeScreen(Screen):
         dialog.open()
         # print("button pressed")
 
-class ResultScreen:
-    pass
+
 class MainApp(MDApp):
  def __init__(self):
      Window.size=(400,600)

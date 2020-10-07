@@ -10,7 +10,7 @@ class ButtonApp(App):
 
     def on_press_button(self):
         print('You pressed the button!')
-
-if __name__=='__main__':
-    app=ButtonApp()
-    app.run()
+ButtonApp().run()
+# if __name__=='__main__':
+#     app=ButtonApp()
+#     app.run()

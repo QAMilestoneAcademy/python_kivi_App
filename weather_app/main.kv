@@ -1,0 +1,90 @@
+ScreenManager:
+    HomeScreen:
+        id:'home'
+        name:'home'
+<HomeScreen>:
+    #canvas.before:
+     #   Color:
+      #      rgb:utils.get_color_from_hex('#08F7B8')
+    FloatLayout:
+        #Label:
+         #   text:'Weather App'
+          #  font_size:30
+        MDTextFieldRound:
+            hint_text: 'City Name'
+            id:city_name
+            pos_hint:{'center_x':.5,'top':.9}
+            size_hint:.6,.06
+        MDTextFieldRound:
+            hint_text: 'Country Name'
+            id:country_name
+            pos_hint:{'center_x':.5,'top':.8}
+            size_hint:.6,.06
+        MDRaisedButton:
+            text: 'SEARCH'
+            id:'button_1'
+            pos_hint:{'center_x':.5,'top':.7}
+            size_hint:.4,.06
+            on_release:
+                root.search()
+        Label:
+            text: 'NOW'
+            font_size:30
+            pos_hint:{'center_x':.5,'top':.6}
+            size_hint:1,.06
+        Label:
+            text: root.weather
+            font_size:30
+            pos_hint:{'left':1,'top':.5}
+            size_hint:.5,.1
+            color:0,1,1,1
+        Label:
+            text: root.description
+            font_size:28
+            pos_hint:{'right':.9,'top':.5}
+            size_hint:.5,.1
+            color:1,1,0,1
+        Label:
+            text: '[u]Humidity[/u]'
+            markup:True
+            font_size:25
+            pos_hint:{'left':1,'top':.4}
+            size_hint:.33,.1
+            color:0,1,0,1
+        Label:
+            text: '[u]Pressure[/u]'
+            markup:True
+            font_size:25
+            pos_hint:{'right':.65,'top':.4}
+            size_hint:.33,.1
+            color:0,1,0,1
+        Label:
+            text: '[u]Visibility[/u]'
+            markup:True
+            font_size:25
+            pos_hint:{'right':1,'top':.4}
+            size_hint:.33,.1
+            color:0,1,0,1
+        #info
+        Label:
+            text: root.humidity
+            font_size:25
+            pos_hint:{'left':1,'top':.33}
+            size_hint:.33,.1
+            color:0,1,1,1
+        Label:
+            text: root.pressure
+            font_size:25
+            pos_hint:{'right':.65,'top':.33}
+            size_hint:.33,.1
+            color:0,1,1,1
+        Label:
+            text: root.visibility
+            font_size:25
+            pos_hint:{'right':1,'top':.33}
+            size_hint:.33,.1
+            color:0,1,1,1
+        Image:
+            pos_hint:{'top':.22,'center_x':.5}
+            size_hint:.4,.15
+            source:'weather.png'
